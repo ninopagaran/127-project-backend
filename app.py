@@ -532,7 +532,8 @@ def get_user_enrollments(user_id):
     if enrollments:
         return jsonify([dict(e) for e in enrollments]), 200
     else:
-        return jsonify({"message": "No enrollments found for this user."}), 404
+        # UPDATED: Return an empty list with a 200 OK status
+        return jsonify([]), 200
 
 
 @app.route("/courses/<int:course_id>/enrollments", methods=["GET"])
